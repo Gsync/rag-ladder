@@ -1,0 +1,43 @@
+[project]
+name = "ragladder-factory"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Khuram Niaz", email = "knshaikh@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastembed>=0.8.0",
+    "httpx>=0.28.1",
+    "instructor>=1.15.4",
+    "llvmlite>=0.40",
+    "networkx>=3.6.1",
+    "numba>=0.57",
+    "numpy>=2.4.6",
+    "openai>=2.45.0",
+    "pydantic>=2.13.4",
+    "scikit-learn>=1.9.0",
+    "typer>=0.26.8",
+    "umap-learn>=0.5.5",
+]
+
+[project.scripts]
+factory = "ragladder_factory.cli:app"
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+strict = true
+
+[build-system]
+requires = ["uv_build>=0.9.11,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.2.0",
+    "pytest>=9.1.1",
+    "ruff>=0.15.21",
+]
