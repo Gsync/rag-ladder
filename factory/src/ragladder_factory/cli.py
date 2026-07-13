@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 
 from ragladder_factory.crawl import crawl as run_crawl
 
+from ragladder_factory.build import build as run_build
+
 load_dotenv()
 
 app = typer.Typer(help="RAG Ladder data factory")
@@ -32,6 +34,16 @@ def crawl(
     raw_dir = Path(f"../datasets/{ecosystem}/raw")
     readmes_dir = Path(f"../datasets/{ecosystem}/readmes")
     asyncio.run(run_crawl(seeds, raw_dir, readmes_dir))
+
+
+@app.command()
+def build(
+    ecosystem: str = typer.Option("npm", help="Package ecosystem to build."),
+) -> None:
+    """Build chunks.json from the crawled cache."""
+    raw_dir = Path(f"../datasets/{ecosystem}/raw")
+    out_dir = Path(f"../datasets/{ecosystem}")
+    run_build(raw_dir, out_dir)
 
 
 if __name__ == "__main__":
