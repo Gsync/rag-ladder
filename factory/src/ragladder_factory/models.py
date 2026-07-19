@@ -18,3 +18,8 @@ class GraphEdge(BaseModel):
     src: str
     dst: str
     relation: str
+
+class Community(BaseModel):
+    id: str
+    label: str
+    members: list[str]

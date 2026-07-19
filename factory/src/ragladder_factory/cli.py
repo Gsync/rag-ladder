@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from ragladder_factory.crawl import crawl as run_crawl
 
 from ragladder_factory.build import build as run_build
+from ragladder_factory.graph import graph as run_graph
 
 load_dotenv()
 
@@ -44,6 +45,16 @@ def build(
     raw_dir = Path(f"../datasets/{ecosystem}/raw")
     out_dir = Path(f"../datasets/{ecosystem}")
     run_build(raw_dir, out_dir)
+
+
+@app.command()
+def graph(
+    ecosystem: str = typer.Option("npm", help="Package ecosystem to build the graph for."),
+) -> None:
+    """Build graph.json and communities.json from the crawled cache."""
+    raw_dir = Path(f"../datasets/{ecosystem}/raw")
+    out_dir = Path(f"../datasets/{ecosystem}")
+    run_graph(raw_dir, out_dir)
 
 
 if __name__ == "__main__":
