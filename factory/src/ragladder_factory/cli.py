@@ -8,6 +8,7 @@ from ragladder_factory.crawl import crawl as run_crawl
 
 from ragladder_factory.build import build as run_build
 from ragladder_factory.graph import graph as run_graph
+from ragladder_factory.traces import traces as run_traces
 
 load_dotenv()
 
@@ -55,6 +56,15 @@ def graph(
     raw_dir = Path(f"../datasets/{ecosystem}/raw")
     out_dir = Path(f"../datasets/{ecosystem}")
     run_graph(raw_dir, out_dir)
+
+
+@app.command()
+def traces(
+    ecosystem: str = typer.Option("npm", help="Package ecosystem to generate traces for."),
+) -> None:
+    """Generate agent traces (demos.json). Needs a running LLM (Ollama/DeepSeek); never run in CI."""
+    out_dir = Path(f"../datasets/{ecosystem}")
+    run_traces(out_dir)
 
 
 if __name__ == "__main__":
