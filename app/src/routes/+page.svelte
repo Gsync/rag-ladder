@@ -1,19 +1,27 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { base } from '$app/paths';
+	import EmbeddingPlayground from '$lib/components/EmbeddingPlayground.svelte';
+	import { rungState, setGuidedPanel, resetGuidedPanel } from '$lib/stores/shell.svelte';
 
-	onMount(async () => {
-		const [chunks, projection, graph] = await Promise.all([
-			fetch(`${base}/data/npm/chunks.json`).then((r) => r.json()),
-			fetch(`${base}/data/npm/projection.json`).then((r) => r.json()),
-			fetch(`${base}/data/npm/graph.json`).then((r) => r.json())
-		]);
+	const M1_GUIDED = {
+		whatThisShows: 'Every package is placed by meaning, not name. Nearby = similar.',
+		tryThis: 'Type "http client".',
+		aha: "You searched with zero keywords — that's an embedding."
+	};
 
-		console.log(
-			`${chunks.length.toLocaleString()} chunks, ${projection.length.toLocaleString()} points, ${graph.edges.length.toLocaleString()} edges`
-		);
+	onMount(() => {
+		if (!rungState.active) rungState.active = 'vanilla';
+	});
+
+	$effect(() => {
+		if (rungState.active === 'vanilla') {
+			setGuidedPanel(M1_GUIDED);
+		} else {
+			resetGuidedPanel();
+		}
 	});
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+{#if rungState.active === 'vanilla'}
+	<EmbeddingPlayground />
+{/if}

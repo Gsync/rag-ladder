@@ -60,7 +60,7 @@
 	.dataset {
 		font-family: var(--font-data);
 		font-size: 0.75rem;
-		color: var(--structure);
+		color: var(--muted);
 		white-space: nowrap;
 	}
 

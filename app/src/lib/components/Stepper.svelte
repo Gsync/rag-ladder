@@ -43,11 +43,11 @@
 	}
 
 	button:disabled {
-		color: var(--structure);
+		color: var(--muted);
 		cursor: not-allowed;
 	}
 
 	.position {
-		color: var(--structure);
+		color: var(--muted);
 	}
 </style>

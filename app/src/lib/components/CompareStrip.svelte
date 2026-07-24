@@ -25,7 +25,7 @@
 	.toggle {
 		background: transparent;
 		border: none;
-		color: var(--structure);
+		color: var(--muted);
 		font-family: var(--font-data);
 		font-size: 0.75rem;
 		letter-spacing: 0.05em;
@@ -63,7 +63,7 @@
 		border-radius: 0.375rem;
 		padding: 0.5rem 0.75rem;
 		font-family: var(--font-data);
-		color: var(--structure);
+		color: var(--muted);
 	}
 
 	.card .number {

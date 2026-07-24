@@ -43,7 +43,7 @@
 
 	.prompt {
 		font-family: var(--font-data);
-		color: var(--structure);
+		color: var(--muted);
 		white-space: nowrap;
 	}
 
@@ -66,7 +66,7 @@
 	.chip {
 		font-family: var(--font-data);
 		font-size: 0.75rem;
-		color: var(--structure);
+		color: var(--muted);
 		background: var(--surface);
 		border: 1px solid var(--structure);
 		border-radius: 999px;

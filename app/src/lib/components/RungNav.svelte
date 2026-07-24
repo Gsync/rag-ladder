@@ -31,7 +31,7 @@
 		background: transparent;
 		border: none;
 		border-left: 2px solid var(--structure);
-		color: var(--structure);
+		color: var(--muted);
 		font-family: var(--font-data);
 		text-align: left;
 		padding: 0.5rem 0.75rem;

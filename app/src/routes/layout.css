@@ -15,6 +15,19 @@
 	--signal: #e8a13a; /* retrieved / active / "lit" (amber) — the signature */
 	--pass: #5fb88e; /* agent grade: sufficient */
 	--fail: #c6636b; /* agent grade: insufficient / retry */
+
+	/* Community identity (M1/M5 scatter + graph). Validated against the
+	   dataviz skill's categorical checks (all-pairs CVD + normal-vision floor,
+	   including cross-checks against --query/--signal, the two tokens that
+	   actually co-occur with these on the M1 canvas) — see Phase 9 notes.
+	   Scatter forms cap at 3 all-pairs-safe categorical slots even before
+	   accounting for the 4 reserved semantic hues above; once those are
+	   avoided too, only 2 slots clear every gate, so only the 2 largest
+	   communities get a color — the rest render as --community-other. */
+	--community-a: #9634b1; /* magenta-violet */
+	--community-b: #416e00; /* olive */
+	--community-other: #717b8b; /* legible neutral for uncategorized dots — do not reuse --structure, its 1.9:1 contrast on --ink is illegible for marks */
+	--muted: #8f99a9; /* legible secondary caption text (legend, tooltip, empty-state prompt) on --ink/--surface */
 }
 
 body {
@@ -36,7 +49,7 @@ h6 {
    (--signal for retrieved/active, --query for the user's own input).
    Never combine .lit and .lit-query in the same view. */
 .dim {
-	color: var(--structure);
+	color: var(--muted);
 }
 
 .lit {

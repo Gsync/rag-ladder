@@ -35,7 +35,7 @@
 		font-size: 0.875rem;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
-		color: var(--structure);
+		color: var(--muted);
 	}
 
 	h3 {
