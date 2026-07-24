@@ -1,1 +1,64 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+	--font-header: 'Space Mono', monospace; /* headers, module titles — used with restraint */
+	--font-body: 'IBM Plex Sans', sans-serif; /* body copy */
+	--font-data:
+		'IBM Plex Mono', monospace; /* package names, scores, versions, node labels — always mono */
+
+	--ink: #0e1116; /* field / app background */
+	--surface: #171b22; /* panels, cards */
+	--structure: #3a4351; /* dormant nodes, edges, dividers, dim text */
+	--text: #e6eaf0; /* primary text */
+	--query: #6e9bf2; /* the user's query (cool blue) */
+	--signal: #e8a13a; /* retrieved / active / "lit" (amber) — the signature */
+	--pass: #5fb88e; /* agent grade: sufficient */
+	--fail: #c6636b; /* agent grade: insufficient / retry */
+}
+
+body {
+	background: var(--ink);
+	color: var(--text);
+	font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-header);
+}
+
+/* Lit/dim contract: an element is either dormant (--structure) or lit
+   (--signal for retrieved/active, --query for the user's own input).
+   Never combine .lit and .lit-query in the same view. */
+.dim {
+	color: var(--structure);
+}
+
+.lit {
+	color: var(--signal);
+}
+
+.lit-query {
+	color: var(--query);
+}
+
+:focus-visible {
+	outline: 2px solid var(--signal);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
