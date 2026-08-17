@@ -1,0 +1,7 @@
+{
+	"name": "rag-ladder",
+	"private": true,
+	"scripts": {
+		"dev": "pnpm -C app dev"
+	}
+}

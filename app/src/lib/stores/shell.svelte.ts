@@ -16,7 +16,8 @@ export type RungId = (typeof RUNGS)[number]['id'];
 // Sub-steps within the vanilla rung (see specs.md's wireframe: "① VANILLA / embed / chunk / ground").
 export const VANILLA_MODULES = [
 	{ id: 'embed', label: 'embed' },
-	{ id: 'chunk', label: 'chunk' }
+	{ id: 'chunk', label: 'chunk' },
+	{ id: 'ground', label: 'ground' }
 ] as const;
 
 export type VanillaModuleId = (typeof VANILLA_MODULES)[number]['id'];

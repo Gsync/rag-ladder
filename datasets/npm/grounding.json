@@ -1,0 +1,27 @@
+{
+  "question": "how do I add a custom formatter to debug's output?",
+  "package_id": "npm:debug",
+  "chunks": [
+    {
+      "start": 7020,
+      "text": "### Custom formatters\n\nYou can add custom formatters by extending the `debug.formatters` object.\nFor example, if you wanted to add support for rendering a Buffer as hex with\n`%h`, you could do something like:\n\n```js\nconst createDebug = require('debug')\ncreateDebug.formatters.h = (v) => {\n  return v.",
+      "score": 0.6128509640693665
+    },
+    {
+      "start": 5720,
+      "text": "                |\n|-----------|-------------------------------------------------|\n| `DEBUG`   | Enables/disables specific debugging namespaces. |\n| `DEBUG_HIDE_DATE` | Hide date from debug output (non-TTY).  |\n| `DEBUG_COLORS`| Whether or not to use colors in the debug output. |\n| `DEBUG_DEPTH` | Ob",
+      "score": 0.5285135507583618
+    },
+    {
+      "start": 6500,
+      "text": "intf_format_string) formatting.\nBelow are the officially supported formatters:\n\n| Formatter | Representation |\n|-----------|----------------|\n| `%O`      | Pretty-print an Object on multiple lines. |\n| `%o`      | Pretty-print an Object all on a single line. |\n| `%s`      | String. |\n| `%d`      | N",
+      "score": 0.5087466239929199
+    }
+  ],
+  "no_context_answer": "To add a custom formatter to Python's debug/logging output, you typically use the `logging` module. Here's how:\n\n1. Create a custom formatter class that inherits from `logging.Formatter`:\n```python\nclass CustomFormatter(logging.Formatter):\n    def format(self, record):\n        # Customize your format here\n        return super().format(record)\n```\n\n2. Apply it to a logger or handler:\n```python\nimport logging\nlogger = logging.getLogger(__name__)\nhandler = logging.StreamHandler()\nhandler.setFormatter(CustomFormatter('%(asctime)s - %(levelname)s - %(message)s'))\nlogger.addHandler(handler)\n```\n\nNote: Python doesn't have a specific \"debug\" module with formatters. The `logging` module is the standard way to handle debug output formatting in Python.",
+  "grounded_answer": "You can add custom formatters to debug's output by extending the `debug.formatters` object. For example, you can create a custom formatter like this:\n\n```js\nconst createDebug = require('debug')\ncreateDebug.formatters.h = (v) => {\n  return v.\n```\n\nThis allows you to add support for rendering specific types (like Buffer as hex with `%h`) in your debug output.",
+  "citations": [
+    7020
+  ],
+  "generated_with": "qwen3.5:9b @ 2026-08-17"
+}

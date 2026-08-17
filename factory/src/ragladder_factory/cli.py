@@ -8,6 +8,7 @@ from ragladder_factory.crawl import crawl as run_crawl
 
 from ragladder_factory.build import build as run_build
 from ragladder_factory.graph import graph as run_graph
+from ragladder_factory.grounding import grounding as run_grounding
 from ragladder_factory.traces import traces as run_traces
 
 load_dotenv()
@@ -65,6 +66,15 @@ def traces(
     """Generate agent traces (demos.json). Needs a running LLM (Ollama/DeepSeek); never run in CI."""
     out_dir = Path(f"../datasets/{ecosystem}")
     run_traces(out_dir)
+
+
+@app.command()
+def grounding(
+    ecosystem: str = typer.Option("npm", help="Package ecosystem to generate the grounding demo for."),
+) -> None:
+    """Generate the M3 grounding demo (grounding.json). Needs a running LLM; never run in CI."""
+    out_dir = Path(f"../datasets/{ecosystem}")
+    run_grounding(out_dir)
 
 
 if __name__ == "__main__":

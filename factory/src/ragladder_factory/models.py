@@ -50,3 +50,17 @@ class Trace(BaseModel):
     answer: str
     citations: list[str]
     generated_with: str
+
+class RetrievedChunk(BaseModel):
+    start: int
+    text: str
+    score: float
+
+class GroundingDemo(BaseModel):
+    question: str
+    package_id: str
+    chunks: list[RetrievedChunk]
+    no_context_answer: str
+    grounded_answer: str
+    citations: list[int]
+    generated_with: str
