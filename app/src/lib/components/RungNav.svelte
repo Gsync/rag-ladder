@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { RUNGS, rungState } from '$lib/stores/shell.svelte';
+	import { RUNGS, rungState, VANILLA_MODULES, vanillaModuleState } from '$lib/stores/shell.svelte';
 </script>
 
 <nav class="rung-nav" aria-label="RAG ladder rungs">
@@ -14,6 +14,21 @@
 			<span class="number">{rung.number}</span>
 			<span class="label">{rung.label}</span>
 		</button>
+		{#if rung.id === 'vanilla' && rungState.active === 'vanilla'}
+			<div class="sub-nav">
+				{#each VANILLA_MODULES as mod (mod.id)}
+					<button
+						type="button"
+						class="sub-rung"
+						class:active={vanillaModuleState.active === mod.id}
+						aria-current={vanillaModuleState.active === mod.id ? 'true' : undefined}
+						onclick={() => (vanillaModuleState.active = mod.id)}
+					>
+						{mod.label}
+					</button>
+				{/each}
+			</div>
+		{/if}
 	{/each}
 </nav>
 
@@ -51,6 +66,32 @@
 		font-weight: 600;
 	}
 
+	.sub-nav {
+		display: flex;
+		flex-direction: column;
+		margin-left: 1.5rem;
+		border-left: 2px solid var(--structure);
+	}
+
+	.sub-rung {
+		background: transparent;
+		border: none;
+		color: var(--muted);
+		font-family: var(--font-data);
+		font-size: 0.8125rem;
+		text-align: left;
+		padding: 0.25rem 0.75rem;
+		cursor: pointer;
+	}
+
+	.sub-rung:hover {
+		color: var(--text);
+	}
+
+	.sub-rung.active {
+		color: var(--signal);
+	}
+
 	@media (max-width: 768px) {
 		.rung-nav {
 			flex-direction: row;
@@ -67,6 +108,12 @@
 		.rung.active {
 			border-left: none;
 			border-top-color: var(--signal);
+		}
+
+		.sub-nav {
+			flex-direction: row;
+			margin-left: 0;
+			border-left: none;
 		}
 	}
 </style>

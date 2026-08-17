@@ -18,3 +18,12 @@ export async function embed(text: string): Promise<Float32Array> {
 	const output = await extractor(text, { pooling: 'mean', normalize: true });
 	return output.data as Float32Array;
 }
+
+// Batches inference into one forward pass instead of one pipeline call per text —
+// needed when embedding dozens of chunks live (chunking lab).
+export async function embedBatch(texts: string[]): Promise<{ data: Float32Array; dim: number }> {
+	const extractor = await getExtractor();
+	const output = await extractor(texts, { pooling: 'mean', normalize: true });
+	const dims = output.dims as number[];
+	return { data: output.data as Float32Array, dim: dims[dims.length - 1] };
+}
