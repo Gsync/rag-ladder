@@ -23,6 +23,11 @@ class Community(BaseModel):
     id: str
     label: str
     members: list[str]
+    summary: str | None = None
+
+class CommunitySummary(BaseModel):
+    label: str
+    summary: str
 
 class Hit(BaseModel):
     id: str

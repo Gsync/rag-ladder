@@ -2,6 +2,7 @@ export type Community = {
 	id: string;
 	label: string;
 	members: string[];
+	summary?: string | null;
 };
 
 export function indexCommunities(communities: Community[]): Map<string, string> {

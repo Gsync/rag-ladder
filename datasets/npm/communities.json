@@ -1,7 +1,7 @@
 [
   {
     "id": "community:0",
-    "label": "Community 0",
+    "label": "Rolldown bundler ecosystem",
     "members": [
       "npm:@emnapi/core",
       "npm:@emnapi/runtime",
@@ -29,11 +29,12 @@
       "npm:@tybys/wasm-util",
       "npm:rolldown",
       "npm:tslib"
-    ]
+    ],
+    "summary": "This group represents the Rolldown bundler toolchain including its platform-specific native bindings and WebAssembly runtime dependencies."
   },
   {
     "id": "community:1",
-    "label": "Community 1",
+    "label": "ESLint ecosystem",
     "members": [
       "npm:@eslint-community/eslint-utils",
       "npm:@eslint-community/regexpp",
@@ -81,11 +82,12 @@
       "npm:prelude-ls",
       "npm:type-check",
       "npm:word-wrap"
-    ]
+    ],
+    "summary": "These packages form the core infrastructure for JavaScript linting and static analysis, primarily serving the ESLint framework and its dependencies."
   },
   {
     "id": "community:2",
-    "label": "Community 2",
+    "label": "Cross-Platform Command Execution",
     "members": [
       "npm:cross-spawn",
       "npm:isexe",
@@ -93,11 +95,12 @@
       "npm:shebang-command",
       "npm:shebang-regex",
       "npm:which"
-    ]
+    ],
+    "summary": "They provide utilities for cross-platform command execution, executable discovery, and process management."
   },
   {
     "id": "community:3",
-    "label": "Community 3",
+    "label": "rollup platform binaries",
     "members": [
       "npm:@rollup/rollup-android-arm-eabi",
       "npm:@rollup/rollup-android-arm64",
@@ -125,11 +128,12 @@
       "npm:@rollup/rollup-win32-x64-gnu",
       "npm:@rollup/rollup-win32-x64-msvc",
       "npm:rollup"
-    ]
+    ],
+    "summary": "These packages are pre-built binaries for rollup on different operating systems and architectures."
   },
   {
     "id": "community:4",
-    "label": "Community 4",
+    "label": "JavaScript build tools",
     "members": [
       "npm:@babel/helper-string-parser",
       "npm:@babel/helper-validator-identifier",
@@ -151,11 +155,12 @@
       "npm:postcss",
       "npm:source-map-js",
       "npm:vue"
-    ]
+    ],
+    "summary": "These packages provide core utilities for parsing, compiling, and executing modern JavaScript frameworks."
   },
   {
     "id": "community:5",
-    "label": "Community 5",
+    "label": "WebAssembly tools",
     "members": [
       "npm:@webassemblyjs/ast",
       "npm:@webassemblyjs/floating-point-hex-parser",
@@ -174,32 +179,36 @@
       "npm:@webassemblyjs/wast-printer",
       "npm:@xtuc/ieee754",
       "npm:@xtuc/long"
-    ]
+    ],
+    "summary": "These packages form the core library for parsing, editing, and generating WebAssembly modules in JavaScript environments."
   },
   {
     "id": "community:6",
-    "label": "Community 6",
+    "label": "Terminal Styling Tools",
     "members": [
       "npm:chalk"
-    ]
+    ],
+    "summary": "These packages provide utilities for adding colors and styles to command-line output in Node.js applications."
   },
   {
     "id": "community:7",
-    "label": "Community 7",
+    "label": "Date Handling Tools",
     "members": [
       "npm:date-fns"
-    ]
+    ],
+    "summary": "They provide common utilities for date and time operations in JavaScript projects."
   },
   {
     "id": "community:8",
-    "label": "Community 8",
+    "label": "Environment Variable Management",
     "members": [
       "npm:dotenv"
-    ]
+    ],
+    "summary": "Packages for loading and managing environment variables in applications."
   },
   {
     "id": "community:9",
-    "label": "Community 9",
+    "label": "Esbuild Platform Binaries",
     "members": [
       "npm:@esbuild/aix-ppc64",
       "npm:@esbuild/android-arm",
@@ -228,18 +237,20 @@
       "npm:@esbuild/win32-ia32",
       "npm:@esbuild/win32-x64",
       "npm:esbuild"
-    ]
+    ],
+    "summary": "This community comprises the core esbuild bundler and its platform-specific binary distributions for various operating systems and architectures."
   },
   {
     "id": "community:10",
-    "label": "Community 10",
+    "label": "String Padding Tools",
     "members": [
       "npm:left-pad"
-    ]
+    ],
+    "summary": "Provides string padding functionality for JavaScript applications."
   },
   {
     "id": "community:11",
-    "label": "Community 11",
+    "label": "Build tool dependencies",
     "members": [
       "npm:detect-libc",
       "npm:fdir",
@@ -259,11 +270,12 @@
       "npm:picomatch",
       "npm:tinyglobby",
       "npm:vite"
-    ]
+    ],
+    "summary": "These packages support file watching, globbing, and CSS processing within modern frontend build tools."
   },
   {
     "id": "community:12",
-    "label": "Community 12",
+    "label": "Path and Async Utilities",
     "members": [
       "npm:find-up",
       "npm:locate-path",
@@ -271,18 +283,20 @@
       "npm:p-locate",
       "npm:path-exists",
       "npm:yocto-queue"
-    ]
+    ],
+    "summary": "These packages provide utilities for resolving file paths and managing asynchronous concurrency limits."
   },
   {
     "id": "community:13",
-    "label": "Community 13",
+    "label": "Utility Libraries",
     "members": [
       "npm:lodash"
-    ]
+    ],
+    "summary": "Provides reusable utility functions for efficient JavaScript development."
   },
   {
     "id": "community:14",
-    "label": "Community 14",
+    "label": "Next.js Core Packages",
     "members": [
       "npm:@next/env",
       "npm:@next/swc-darwin-arm64",
@@ -304,18 +318,20 @@
       "npm:picocolors",
       "npm:styled-jsx",
       "npm:update-browserslist-db"
-    ]
+    ],
+    "summary": "This community includes Next.js binaries, browser compatibility data, and utilities required for its build process and runtime."
   },
   {
     "id": "community:15",
-    "label": "Community 15",
+    "label": "React Ecosystem",
     "members": [
       "npm:react"
-    ]
+    ],
+    "summary": "This community comprises React and related packages for building interactive web applications."
   },
   {
     "id": "community:16",
-    "label": "Community 16",
+    "label": "Express ecosystem packages",
     "members": [
       "npm:accepts",
       "npm:agent-base",
@@ -364,11 +380,12 @@
       "npm:unpipe",
       "npm:vary",
       "npm:wrappy"
-    ]
+    ],
+    "summary": "These packages constitute the standard middleware and utility libraries required for building Node.js web servers with Express."
   },
   {
     "id": "community:17",
-    "label": "Community 17",
+    "label": "Sharp image processing",
     "members": [
       "npm:@img/colour",
       "npm:@img/sharp-darwin-arm64",
@@ -396,11 +413,12 @@
       "npm:@img/sharp-win32-x64",
       "npm:semver",
       "npm:sharp"
-    ]
+    ],
+    "summary": "This community comprises the Sharp image processing library along with its architecture-specific native binaries and supporting dependencies."
   },
   {
     "id": "community:18",
-    "label": "Community 18",
+    "label": "Core JavaScript Utilities",
     "members": [
       "npm:async-function",
       "npm:async-generator-function",
@@ -433,11 +451,12 @@
       "npm:side-channel-list",
       "npm:side-channel-map",
       "npm:side-channel-weakmap"
-    ]
+    ],
+    "summary": "These packages provide essential low-level helpers for implementing ECMAScript features and handling common runtime tasks."
   },
   {
     "id": "community:19",
-    "label": "Community 19",
+    "label": "Svelte build tools",
     "members": [
       "npm:@jridgewell/gen-mapping",
       "npm:@jridgewell/remapping",
@@ -471,18 +490,20 @@
       "npm:terser",
       "npm:undici-types",
       "npm:zimmerframe"
-    ]
+    ],
+    "summary": "These packages provide core utilities for code transformation, source map handling, and accessibility support within the Svelte ecosystem."
   },
   {
     "id": "community:20",
-    "label": "Community 20",
+    "label": "Utility-First CSS",
     "members": [
       "npm:tailwindcss"
-    ]
+    ],
+    "summary": "A framework enabling rapid UI development through pre-built utility classes."
   },
   {
     "id": "community:21",
-    "label": "Community 21",
+    "label": "TypeScript Compiler Binaries",
     "members": [
       "npm:@typescript/typescript-aix-ppc64",
       "npm:@typescript/typescript-darwin-arm64",
@@ -505,18 +526,20 @@
       "npm:@typescript/typescript-win32-arm64",
       "npm:@typescript/typescript-win32-x64",
       "npm:typescript"
-    ]
+    ],
+    "summary": "These packages represent the TypeScript compiler distributed across multiple operating systems and hardware architectures."
   },
   {
     "id": "community:22",
-    "label": "Community 22",
+    "label": "UUID Utilities",
     "members": [
       "npm:uuid"
-    ]
+    ],
+    "summary": "Generates universally unique identifiers for applications requiring distinct IDs across sessions, databases, and other use cases."
   },
   {
     "id": "community:23",
-    "label": "Community 23",
+    "label": "Webpack ecosystem",
     "members": [
       "npm:@types/json-schema",
       "npm:acorn-import-phases",
@@ -543,13 +566,15 @@
       "npm:watchpack",
       "npm:webpack",
       "npm:webpack-sources"
-    ]
+    ],
+    "summary": "This group contains the essential libraries, resolvers, loaders, and validation tools that power the Webpack module bundler."
   },
   {
     "id": "community:24",
-    "label": "Community 24",
+    "label": "Schema Validation Libraries",
     "members": [
       "npm:zod"
-    ]
+    ],
+    "summary": "These packages provide type-safe data validation tools for ensuring input consistency in TypeScript applications."
   }
 ]

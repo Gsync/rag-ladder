@@ -5,7 +5,8 @@ from pathlib import Path
 
 import networkx as nx
 
-from ragladder_factory.models import Community, GraphEdge, GraphNode
+from ragladder_factory.llm import get_llm
+from ragladder_factory.models import Community, CommunitySummary, GraphEdge, GraphNode
 
 def load_nodes(raw_dir: Path) -> list[GraphNode]:
     nodes = []
@@ -50,6 +51,30 @@ def detect_communities(G: nx.DiGraph[str]) -> list[Community]:
         for i, group in enumerate(groups)
     ]
 
+def summarize_communities(communities: list[Community]) -> None:
+    client, model = get_llm()
+    for community in communities:
+        names = [m.removeprefix("npm:") for m in community.members[:30]]
+        result = client.chat.completions.create(
+            model=model,
+            response_model=CommunitySummary,
+            temperature=0,
+            messages=[
+                {
+                    "role": "user",
+                    "content": (
+                        "These npm packages were grouped together by community detection "
+                        f"on a dependency graph:\n{', '.join(names)}\n\n"
+                        "Give this community a short label (2-4 words, e.g. 'build tools', "
+                        "'the React world') and a one-sentence summary of what ties them "
+                        "together."
+                    ),
+                }
+            ],
+        )
+        community.label = result.label
+        community.summary = result.summary
+
 def write_graph(nodes: list[GraphNode], edges: list[GraphEdge], out_path: Path) -> None:
     data = {
         "nodes": [n.model_dump() for n in nodes],
@@ -67,5 +92,6 @@ def graph(raw_dir: Path, out_dir: Path) -> None:
     G = build_graph(nodes, edges)
     apply_layout(nodes, G)
     communities = detect_communities(G)
+    summarize_communities(communities)
     write_graph(nodes, edges, out_dir / "graph.json")
     write_communities(communities, out_dir / "communities.json")

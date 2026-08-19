@@ -4,6 +4,7 @@
 	import ChunkingLab from '$lib/components/ChunkingLab.svelte';
 	import GroundingDemo from '$lib/components/GroundingDemo.svelte';
 	import VanillaBreaks from '$lib/components/VanillaBreaks.svelte';
+	import GraphExplorer from '$lib/components/GraphExplorer.svelte';
 	import {
 		rungState,
 		vanillaModuleState,
@@ -40,7 +41,20 @@
 		aha: "The answer isn't about similar packages — it's about connected ones. Similarity can't see connections. That's the wall."
 	};
 
+	const M5_GUIDED = {
+		whatThisShows: 'Same data, now as connections.',
+		tryThis: 'Step through what depends on debug.',
+		aha: "One hop answered what similarity couldn't. That's graph retrieval."
+	};
+
+	const M5_THEMATIC_GUIDED = {
+		whatThisShows: 'Same data, now as connections.',
+		tryThis: 'Toggle "color by community" and hover a cluster.',
+		aha: "Zoom out and the graph clusters into the ecosystems nobody labeled — that's community detection."
+	};
+
 	const BREAKS_QUESTION = DEMO_QUESTIONS[1];
+	const THEMATIC_QUESTION = DEMO_QUESTIONS[2];
 
 	onMount(() => {
 		if (!rungState.active) rungState.active = 'vanilla';
@@ -52,6 +66,9 @@
 			else if (vanillaModuleState.active === 'chunk') setGuidedPanel(M2_GUIDED);
 			else if (vanillaModuleState.active === 'ground') setGuidedPanel(M3_GUIDED);
 			else setGuidedPanel(M1_GUIDED);
+		} else if (rungState.active === 'graph') {
+			if (queryState.text === THEMATIC_QUESTION) setGuidedPanel(M5_THEMATIC_GUIDED);
+			else setGuidedPanel(M5_GUIDED);
 		} else {
 			resetGuidedPanel();
 		}
@@ -68,4 +85,6 @@
 	{:else}
 		<EmbeddingPlayground />
 	{/if}
+{:else if rungState.active === 'graph'}
+	<GraphExplorer />
 {/if}
